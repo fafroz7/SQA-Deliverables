@@ -11,7 +11,7 @@ Test-Plan/ → Test planning documents (scope, approach, schedule, risks) [comin
 ├── Bug-Reports/ → Sample defect reports in Excel/Word [coming soon]
 ├── RTM/ → Requirement Traceability Matrix (Req ↔ Test Cases) [coming soon]
 ├── Test-Summary/ → Test execution summary reports [coming soon]
-└── Tool-Evidence/ → Screenshots & evidence from QA tools (Postman, JMeter, Selenium) [coming soon]
+└── Tool-Evidence/ → Screenshots & evidence from QA tools (Postman, JMeter, Selenium) ✅ (available)
 
 ---
 
@@ -20,8 +20,9 @@ Test-Plan/ → Test planning documents (scope, approach, schedule, risks) [comin
 - **Test Cases**  
   - `TestCases_Login.xlsx` → Covers valid/invalid login, empty fields, password masking.  
   - `Practice_TestCases.xlsx` → General test cases for common apps (Login, Signup, Cart, Checkout, Calculator).  
-  - More to be added soon (Cart, Checkout & Order Process).  
-
+  - More to be added soon (Cart, Checkout & Order Process).
+     
+- **API Testing**: Postman  
 ---
 
 ## 🎯 Planned Deliverables

@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "683b11fd-01a9-4cce-85b5-a14aeff96d81",
+		"name": "Postman Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42737358"
+	},
+	"item": [
+		{
+			"name": "GET all posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Check that the status code is 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Check that response body is not empty\r",
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET single post",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Check that status code is 201\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Check that response body is not empty\r",
+							"pm.test(\"Response body is not empty\", function () {\r",
+							"    pm.expect(pm.response.text()).to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"// Convert response to JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"// Check title matches\r",
+							"pm.test(\"Title is correct\", function () {\r",
+							"    pm.expect(jsonData.title).to.eql(\"Test Post\");\r",
+							"});\r",
+							"\r",
+							"// Check body matches\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.expect(jsonData.body).to.eql(\"Learning Postman is fun!\");\r",
+							"});\r",
+							"\r",
+							"// Check id exists\r",
+							"pm.test(\"id is present\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Test Post\",\r\n  \"body\": \"Learning Postman is fun!\",\r\n  \"userId\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
